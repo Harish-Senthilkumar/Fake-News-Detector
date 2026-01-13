@@ -33,3 +33,17 @@ print(f"\n📏 Article length statistics:")
 print(f"Average length: {df['text_length'].mean():.0f} characters")
 print(f"Shortest article: {df['text_length'].min()} characters")
 print(f"Longest article: {df['text_length'].max()} characters")
+
+#try to identify and compare the lengths of fake vs real news articles
+print(f"\n📊 Average article lengths by label:")
+print(df.groupby('label')['text_length'].mean())
+
+#Visualize the data through graphs, figures, etc.
+fig, axes = plt.subplots(1, 2, figsize=(14, 6))
+
+#Label distr = plot 1
+df['label'].value_counts().plot(kind='bar', ax=axes[0], color=['skyblue', 'salmon'])
+axes[0].set_title('Distribution of Fake vs Real News', fontsize = 15, fontweight='bold')
+axes[0].set_xlabel('Label', fontsize=12)
+axes[0].set_ylabel('Count', fontsize=12)
+axes[0].tick_params(axis='x', rotation=0)
