@@ -23,3 +23,13 @@ print(f"Label: {df['label'].iloc[0]}")
 print("\n🏷️ Label Distribution:")
 print(df['label'].value_counts())
 
+#Are there any missing values?
+print(f"\n❓ Missing Values:")
+print(df.isnull().sum())
+
+# Let's see article lengths
+df['text_length'] = df['text'].apply(len)
+print(f"\n📏 Article length statistics:")
+print(f"Average length: {df['text_length'].mean():.0f} characters")
+print(f"Shortest article: {df['text_length'].min()} characters")
+print(f"Longest article: {df['text_length'].max()} characters")
