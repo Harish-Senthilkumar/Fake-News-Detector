@@ -47,3 +47,21 @@ axes[0].set_title('Distribution of Fake vs Real News', fontsize = 15, fontweight
 axes[0].set_xlabel('Label', fontsize=12)
 axes[0].set_ylabel('Count', fontsize=12)
 axes[0].tick_params(axis='x', rotation=0)
+
+#Label distr = plot 2
+df.boxplot(column='text_length', by='label', ax=axes[1])
+axes[1].set_title('Article Lengths by Label', fontsize = 15, fontweight='bold')
+axes[1].set_xlabel('Label', fontsize=12)
+axes[1].set_ylabel('Text Length (characters)', fontsize=12)
+
+# To remove the default title
+plt.suptitle('')
+#Other layout adjustments
+plt.tight_layout()
+plt.savefig('data_exploration_plots.png', dpi=300, bbox_inches='tight')
+#show the actual graph
+plt.show()
+
+print("\n" + "=" * 50)
+print("DATA EXPLORATION COMPLETE")
+print("=" * 50)
