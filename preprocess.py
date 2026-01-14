@@ -45,3 +45,15 @@ def stem_text(text):
     stemmed_words = [stemmer.stem(word) for word in words]
     return ' '.join(stemmed_words)
 
+#Testing the functions
+if __name__ == "__main__":
+    sample = "This is BREAKING NEWS!!! Visit www.fakenews.com for more information!!!"
+    print("=" * 60)
+    print("TESTING TEXT PREPROCESSING")
+    print("=" * 60)
+    print("\nOriginal text:")
+    print(f"'{sample}'")
+    print("\nCleaned text:")
+    print(f"'{preprocess_text(sample)}'")
+    print("\n✅ Preprocessing functions are ready!")
+    print("=" * 60)
