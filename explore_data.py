@@ -20,22 +20,22 @@ print(f"Text: {df['text'].iloc[0][:300]}...")  # Print first 300 characters
 print(f"Label: {df['label'].iloc[0]}")
 
 #Distribution of Fake vs Real News...
-print("\n🏷️ Label Distribution:")
+print("\nLabel Distribution:")
 print(df['label'].value_counts())
 
 #Are there any missing values?
-print(f"\n❓ Missing Values:")
+print(f"\nMissing Values:")
 print(df.isnull().sum())
 
 # Let's see article lengths
 df['text_length'] = df['text'].apply(len)
-print(f"\n📏 Article length statistics:")
+print(f"\nArticle length statistics:")
 print(f"Average length: {df['text_length'].mean():.0f} characters")
 print(f"Shortest article: {df['text_length'].min()} characters")
 print(f"Longest article: {df['text_length'].max()} characters")
 
 #try to identify and compare the lengths of fake vs real news articles
-print(f"\n📊 Average article lengths by label:")
+print(f"\nAverage article lengths by label:")
 print(df.groupby('label')['text_length'].mean())
 
 #Visualize the data through graphs, figures, etc.
