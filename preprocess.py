@@ -55,5 +55,5 @@ if __name__ == "__main__":
     print(f"'{sample}'")
     print("\nCleaned text:")
     print(f"'{preprocess_text(sample)}'")
-    print("\n✅ Preprocessing functions are ready!")
+    print("\n Preprocessing functions are ready!")
     print("=" * 60)
