@@ -8,27 +8,27 @@ print("PREPARING DATASET FOR TRAINING")
 print("=" * 60)
 
 # Load data
-print("\n📂 Loading data...")
+print("\nLoading data...")
 df = pd.read_csv('news_data.csv')
 
 # Remove any rows with missing text
 df = df.dropna(subset=['text', 'label'])
-print(f"✅ Loaded {len(df)} articles")
+print(f"Loaded {len(df)} articles")
 
 # For learning purposes, we'll use a sample (you can increase this later)
 # Using 10,000 articles for faster training
-print("\n✂️ Sampling 10,000 articles for training...")
+print("\nSampling 10,000 articles for training...")
 df = df.sample(n=min(10000, len(df)), random_state=42)
-print(f"✅ Using {len(df)} articles")
+print(f"Using {len(df)} articles")
 
 # Preprocess all text
-print("\n🧹 Preprocessing text (this may take 1-2 minutes)...")
+print("\nPreprocessing text (this may take 1-2 minutes)...")
 print("Cleaning, removing stopwords, and stemming...")
 
 df['cleaned_text'] = df['text'].apply(preprocess_text)
 
 # Show before/after example
-print("\n📰 Example transformation:")
+print("\nExample transformation:")
 print("\nBEFORE:")
 print(df['text'].iloc[0][:200] + "...")
 print("\nAFTER:")
@@ -42,12 +42,12 @@ y = df['label']          # FAKE or REAL
 label_mapping = {'FAKE': 0, 'REAL': 1}
 y = y.map(label_mapping)
 
-print(f"\n🏷️ Label distribution:")
+print(f"\nLabel distribution:")
 print(f"FAKE (0): {(y == 0).sum()}")
 print(f"REAL (1): {(y == 1).sum()}")
 
 # Split into training (80%) and testing (20%) sets
-print("\n✂️ Splitting into train and test sets...")
+print("\nSplitting into train and test sets...")
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42, stratify=y
 )
@@ -56,7 +56,7 @@ print(f"Training set: {len(X_train)} articles")
 print(f"Testing set: {len(X_test)} articles")
 
 # Save the prepared data
-print("\n💾 Saving prepared data...")
+print("\nSaving prepared data...")
 data = {
     'X_train': X_train,
     'X_test': X_test,
@@ -67,8 +67,8 @@ data = {
 with open('prepared_data.pkl', 'wb') as f:
     pickle.dump(data, f)
 
-print("✅ Saved to 'prepared_data.pkl'")
+print("Saved to 'prepared_data.pkl'")
 print("\n" + "=" * 60)
-print("✅ DATASET PREPARATION COMPLETE!")
+print("DATASET PREPARATION COMPLETE!")
 print("=" * 60)
 print("\nNext step: Run 'python train_model.py' to train the model")
