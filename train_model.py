@@ -40,3 +40,29 @@ X_test_vec = vectorizer.transform(X_test)
 
 print(f"\nCreated {X_train_vec.shape[1]} features from the text")
 
+
+'''
+Training the Logistic Regression model
+'''
+print("\n" + "=" * 60)
+print("STEP 2: TRAINING THE LOGISTIC REGRESSION MODEL")
+print("=" * 60)
+
+model = LogisticRegression(max_iter=1000, random_state - 42)
+model.fit(X_train_vec, y_train)
+print("\nModel training complete!")
+
+#Evaluating the model
+print("\n" + "=" * 60)
+print("STEP 3: EVALUATING THE MODEL")
+print("=" * 60)
+
+print("\n Testing on unseen articles and text...")
+y_pred = model.predict(X_test_vec)
+
+#Calculate accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print(f"\nAccuracy: {accuracy * 100:.2f}%")
+#All Detailed rest of classification report
+print("\nClassification Report:")
+print(classification_report(y_test, y_pred, target_names=['FAKE', 'REAL']))
