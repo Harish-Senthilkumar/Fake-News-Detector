@@ -66,3 +66,54 @@ print(f"\nAccuracy: {accuracy * 100:.2f}%")
 #All Detailed rest of classification report
 print("\nClassification Report:")
 print(classification_report(y_test, y_pred, target_names=['FAKE', 'REAL']))
+
+#Confusion Matrix
+print("\nConfusion Matrix - Creating Visualization: ")
+cm = confusion_matrix(y_test, y_pred)
+plt.figure(figsize=(8, 6))
+sns.heatmap(cm, annot=True, fmt='d',cmap='Blues',
+            xticklabels=['FAKE', 'REAL'],
+            yticklabels=['FAKE', 'REAL']
+            cbar_kws={'label': 'Count'})
+plt.titleImportance('Confusion Matrix\n', fontsize=16, fontweight='bold')
+plt.ylabel('Actual Label', fontsize=14)
+plt.xlabel('Predicted Label', fontsize=14)
+
+plt.text(1, -0.3, f'Overall Accuracy: {accuracy * 100:.2f}%', 
+         ha='center', fontsize=12, fontweight='bold')
+
+#Dynamic and compact layout
+plt.tight_layout()
+plt.savefig('confusion_matrix.png')
+print("Confusion matrix saved as 'confusion_matrix.png'")
+plt.show()
+
+#Show some example predictions
+print("\nSome Example Predictions:")
+for i in range(5):
+    actual = "Fake" if y_test.iloc[i] == 0 else "Real"
+    predicted = "Fake" if y_pred[i] == 0 else "Real"
+    correct = "Correct" if actual == predicted else "Incorrect"
+    print(f"\n{correct} Article {i+1}:")
+    print(f"   Text: {X_test.iloc[i][:100]}...")
+    print(f"   Actual: {actual} | Predicted: {predicted}")
+
+#Save the trained model and vectorizer
+print("\n" + "=" * 60)
+print("STEP 4: SAVING THE MODEL AND VECTORIZER")
+print("=" * 60)
+
+with open('fake_news_model.pkl', 'wb') as f:
+    pickle.dump(model, f)
+with open('tfidf_vectorizer.pkl', 'wb') as f:
+    pickle.dump(vectorizer, f)
+
+print("Model saved as 'fake_news_model.pkl'")
+print("Vectorizer saved as 'tfidf_vectorizer.pkl'")
+
+#Accuracy summary and last statements
+print("\n" + "=" * 60)
+print("🎉 TRAINING COMPLETE!")
+print("=" * 60)
+print(f"\nFinal Accuracy: {accuracy * 100:.2f}%")
+print("\nNext step: Run 'python predict.py' to test predictions!")
