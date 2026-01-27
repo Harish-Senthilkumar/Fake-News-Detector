@@ -113,7 +113,7 @@ print("Vectorizer saved as 'tfidf_vectorizer.pkl'")
 
 #Accuracy summary and last statements
 print("\n" + "=" * 60)
-print("🎉 TRAINING COMPLETE!")
+print("TRAINING COMPLETE!")
 print("=" * 60)
 print(f"\nFinal Accuracy: {accuracy * 100:.2f}%")
 print("\nNext step: Run 'python predict.py' to test predictions!")
