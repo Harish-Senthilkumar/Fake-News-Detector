@@ -1,12 +1,12 @@
-# Fake News Detector 🔍
+# Fake News Detector
 
 A machine learning project that classifies news articles as FAKE or REAL using Natural Language Processing.
 
-## 🎯 Project Goal
+## Project Goal
 
 Detect fake news by analyzing text patterns and linguistic features using machine learning.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - Python 3.x
 - pandas - Data manipulation
@@ -14,7 +14,7 @@ Detect fake news by analyzing text patterns and linguistic features using machin
 - NLTK - Natural language processing
 - matplotlib & seaborn - Visualization
 
-## 📁 Project Structure
+## Project Structure
 ```
 fake-news-detector/
 ├── explore_data.py       # Data exploration
@@ -25,7 +25,7 @@ fake-news-detector/
 └── README.md
 ```
 
-## 🚀 Installation
+## Installation
 ```bash
 # Clone repository
 git clone https://github.com/YOUR-USERNAME/fake-news-detector.git
@@ -43,13 +43,13 @@ pip install -r requirements.txt
 python -c "import nltk; nltk.download('stopwords')"
 ```
 
-## 📊 Dataset
+## Dataset
 
 Uses 40,000+ news articles labeled as FAKE or REAL.
 
 *Dataset not included due to size.*
 
-## 🧠 Learning Goals
+## Learning Goals
 
 - Text preprocessing techniques
 - TF-IDF feature extraction
@@ -57,7 +57,7 @@ Uses 40,000+ news articles labeled as FAKE or REAL.
 - Model evaluation
 - NLP applications
 
-## 🔮 Progress
+## Progress
 
 - [x] Project setup
 - [x] Data exploration
@@ -66,5 +66,5 @@ Uses 40,000+ news articles labeled as FAKE or REAL.
 - [ ] Predictions
 - [ ] Deployment
 
-## 👤 Author
+## Author
 Harish Senthilkumar
